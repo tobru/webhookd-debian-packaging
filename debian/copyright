@@ -2,7 +2,7 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: webhookd
 Source: https://github.com/tobru/webhookd
 
-Files: debian/*
+Files: *
 Copyright: 2015 Tobias Brunner <tobias@tobru.ch>
 License: MIT
 Comment: the Debian packaging is licensed under the same terms as the original package.

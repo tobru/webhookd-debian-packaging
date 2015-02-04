@@ -1,3 +1,9 @@
+webhookd (0.0.8-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Tobias Brunner <tobias@tobru.ch>  Wed, 04 Feb 2015 16:15:48 +0100
+
 webhookd (0.0.7-5) UNRELEASED; urgency=medium
 
   * Initial release

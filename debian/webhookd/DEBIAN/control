@@ -1,0 +1,12 @@
+Package: webhookd
+Version: 0.0.7-1
+Architecture: all
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 76
+Depends: ruby | ruby-interpreter
+Section: ruby
+Priority: optional
+Homepage: https://github.com/tobru/webhookd
+Description: Flexible, configurable universal webhook receiver
+ This app is a flexible, configurable universal webhook receiver, built with sinatra. It can receive a webhook, parse its payload and take action according to the configuration.
+Ruby-Versions: all

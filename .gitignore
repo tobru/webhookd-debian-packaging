@@ -13,3 +13,11 @@
 *.a
 *.log
 mkmf.log
+/debian/webhooker.postinst.debhelper
+/debian/webhooker.postrm.debhelper
+/debian/webhooker.prerm.debhelper
+/debian/webhooker.substvars
+/debian/webhooker
+/debian/files
+/.pc
+Gemfile.lock

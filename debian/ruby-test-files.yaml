@@ -1,0 +1,4 @@
+---
+- test/helper.rb
+- test/test_basics.rb
+- test/test_bitbucket.rb

@@ -1,0 +1,19 @@
+Source: webhookd
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Tobias Brunner <tobias@tobru.ch>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.7.6~)
+Standards-Version: 3.9.5
+#Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/webhookd.git
+#Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/webhookd.git;a=summary
+Homepage: https://github.com/tobru/webhookd
+XS-Ruby-Versions: all
+
+Package: webhookd
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+# bundler (~> 1.7, development), rake (~> 10.0, development), rack-test (>= 0.6.0, development), sinatra (>= 1.4.5, ~> 1.4), thor (>= 0.18.1, ~> 0.18), thin (>= 1.6.3, ~> 1.6)
+Description: Flexible, configurable universal webhook receiver
+ This app is a flexible, configurable universal webhook receiver, built with sinatra. It can receive a webhook, parse its payload and take action according to the configuration.

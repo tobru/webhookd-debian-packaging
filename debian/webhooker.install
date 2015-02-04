@@ -1,0 +1,2 @@
+config.ru etc/webhookd
+etc/example.yml.dist etc/webhookd

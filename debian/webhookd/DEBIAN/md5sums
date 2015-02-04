@@ -8,7 +8,7 @@ d9c35ed9643121c98898edf18ff38ec5  usr/lib/ruby/vendor_ruby/webhookd/logging.rb
 a2bbb78f41f4bb88b4353f6178422aa0  usr/lib/ruby/vendor_ruby/webhookd/payloadtype/bitbucket.rb
 63a5291eeb47846221b4c00d80ebcf8f  usr/lib/ruby/vendor_ruby/webhookd/payloadtype/gitlab.rb
 744fb4301d5c057f2ac422ca249b4dc3  usr/lib/ruby/vendor_ruby/webhookd/version.rb
-4dd3e9e3885aa3c62879751521863767  usr/share/doc/webhookd/changelog.Debian.gz
+cc430d9987712532c5a08d46a2c4f238  usr/share/doc/webhookd/changelog.Debian.gz
 6e7f01be0b1a510aa9b7b0c1fa470d22  usr/share/doc/webhookd/changelog.gz
-cda82c7b7f6362f64e22b2fa34bc9f98  usr/share/doc/webhookd/copyright
+a78d724ac416d0552f5cbd47ccd4fb2f  usr/share/doc/webhookd/copyright
 643a7c8cebb834315adbe0c90fdae608  usr/share/rubygems-integration/all/specifications/webhookd-0.0.7.gemspec

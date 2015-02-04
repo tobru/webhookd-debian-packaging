@@ -1,14 +1,14 @@
 --- !ruby/object:Gem::Specification
 name: webhookd
 version: !ruby/object:Gem::Version
-  version: 0.0.7
+  version: 0.0.8
 platform: ruby
 authors:
 - Tobias Brunner
 autorequire: 
 bindir: bin
 cert_chain: []
-date: 2015-01-31 00:00:00.000000000 Z
+date: 2015-02-04 00:00:00.000000000 Z
 dependencies:
 - !ruby/object:Gem::Dependency
   name: bundler
@@ -139,6 +139,7 @@ files:
 - lib/webhookd/configuration.rb
 - lib/webhookd/logging.rb
 - lib/webhookd/payloadtype/bitbucket.rb
+- lib/webhookd/payloadtype/debug.rb
 - lib/webhookd/payloadtype/gitlab.rb
 - lib/webhookd/version.rb
 - scripts/test/curl-bitbucket-explicit-repo-and-branch.sh

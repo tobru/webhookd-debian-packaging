@@ -16,4 +16,5 @@ vcs:
   encdata:
     master:
       command: 'git pull'
+debug:
 

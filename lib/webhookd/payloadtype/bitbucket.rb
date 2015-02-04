@@ -34,7 +34,7 @@ module Webhookd
       data[:branch_name] = branch_name
       data[:author_name] = author_name
 
-      logger.debug "parsed from the bitbucket data: #{data}"
+      logger.info "parsed from the bitbucket data: #{data}"
 
       # return the hash
       data

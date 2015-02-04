@@ -15,10 +15,10 @@ module Webhookd
         logger.info "Running command: #{@command}"
         Open3::popen2e(@command) { |stdin, stdout_err, wait_thr|
           while line = stdout_err.gets
-            logger.debug("Command output: #{line.strip}")
+            logger.info("STDOUTERR: #{line.strip}")
           end
           if wait_thr.value.success?
-            logger.info "command successful"
+            logger.info "command successfully finished"
             return true
           else
             logger.error "command failed"
@@ -26,7 +26,7 @@ module Webhookd
           end
         }
       rescue Exception => e
-        logger.fatal "Completely failed: #{e.message}"
+        logger.fatal "command running completely failed: #{e.message}"
       end
     end
   end

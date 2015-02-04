@@ -1,9 +1,9 @@
 Package: webhookd
-Version: 0.0.7-4
+Version: 0.0.7-5
 Architecture: all
 Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
 Installed-Size: 95
-Depends: ruby | ruby-interpreter
+Depends: ruby | ruby-interpreter, ruby-thor, ruby-sinatra, thin
 Section: ruby
 Priority: optional
 Homepage: https://github.com/tobru/webhookd

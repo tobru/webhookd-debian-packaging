@@ -1,0 +1,182 @@
+--- !ruby/object:Gem::Specification
+name: webhookd
+version: !ruby/object:Gem::Version
+  version: 0.0.7
+platform: ruby
+authors:
+- Tobias Brunner
+autorequire: 
+bindir: bin
+cert_chain: []
+date: 2015-01-31 00:00:00.000000000 Z
+dependencies:
+- !ruby/object:Gem::Dependency
+  name: bundler
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.7'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.7'
+- !ruby/object:Gem::Dependency
+  name: rake
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '10.0'
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '10.0'
+- !ruby/object:Gem::Dependency
+  name: rack-test
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 0.6.0
+  type: :development
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 0.6.0
+- !ruby/object:Gem::Dependency
+  name: sinatra
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.4'
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 1.4.5
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.4'
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 1.4.5
+- !ruby/object:Gem::Dependency
+  name: thor
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '0.18'
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 0.18.1
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '0.18'
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 0.18.1
+- !ruby/object:Gem::Dependency
+  name: thin
+  requirement: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.6'
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 1.6.3
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - "~>"
+      - !ruby/object:Gem::Version
+        version: '1.6'
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 1.6.3
+description: This app is a flexible, configurable universal webhook receiver, built
+  with sinatra. It can receive a webhook, parse its payload and take action according
+  to the configuration.
+email:
+- tobias@tobru.ch
+executables:
+- webhookd
+extensions: []
+extra_rdoc_files: []
+files:
+- ".gitignore"
+- CHANGELOG.md
+- Gemfile
+- LICENSE
+- README.md
+- Rakefile
+- bin/webhookd
+- config.ru
+- etc/example.yml
+- etc/example.yml.dist
+- lib/webhookd.rb
+- lib/webhookd/app.rb
+- lib/webhookd/cli.rb
+- lib/webhookd/command_runner.rb
+- lib/webhookd/configuration.rb
+- lib/webhookd/logging.rb
+- lib/webhookd/payloadtype/bitbucket.rb
+- lib/webhookd/payloadtype/gitlab.rb
+- lib/webhookd/version.rb
+- scripts/test/curl-bitbucket-explicit-repo-and-branch.sh
+- scripts/test/curl-bitbucket-explicit-repo-wrong-branch.sh
+- scripts/test/curl-bitbucket-nocommand.sh
+- scripts/test/curl-bitbucket-unknown-repo.sh
+- scripts/test/curl-gitlab-unknown-repo.sh
+- scripts/webhookd.default
+- scripts/webhookd.init
+- test/helper.rb
+- test/test_basics.rb
+- test/test_bitbucket.rb
+- webhookd.gemspec
+homepage: https://github.com/tobru/webhookd
+licenses:
+- MIT
+metadata: {}
+post_install_message: 
+rdoc_options: []
+require_paths:
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement
+  requirements:
+  - - ">="
+    - !ruby/object:Gem::Version
+      version: '0'
+required_rubygems_version: !ruby/object:Gem::Requirement
+  requirements:
+  - - ">="
+    - !ruby/object:Gem::Version
+      version: '0'
+requirements: []
+rubyforge_project: 
+rubygems_version: 2.2.2
+signing_key: 
+specification_version: 4
+summary: Flexible, configurable universal webhook receiver
+test_files:
+- test/helper.rb
+- test/test_basics.rb
+- test/test_bitbucket.rb

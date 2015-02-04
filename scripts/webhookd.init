@@ -1,0 +1,67 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:        webhookd_start
+# Required-Start:  $network $syslog
+# Required-Stop:
+# Default-Start:   2 3 4 5
+# Default-Stop:
+# Short-Description: Starts up the webhookd server
+### END INIT INFO
+
+set -e
+
+# Default settings
+AS_USER=root
+AS_GROUP=root
+PORT=8088
+CONFIGFILE=/etc/webhookd.yaml
+SSL=no
+
+# You should only need to edit the default/webhookd file and not
+#   this init script directly
+if [ -r "/etc/default/webhookd" ] ; then
+  . /etc/default/webhookd
+fi
+
+SSL_PARAMS=""
+if [ "${SSL}" == "yes" ] ; then
+  SSL_PARAMS="--ssl --ssl-key-file ${SSK_KEY} --ssl-cert-file ${SSL_CERT}"
+fi
+
+TIMEOUT=${TIMEOUT-60}
+PID=/run/webhookd.${PORT}.pid
+CMD="webhookd start -s1 -d -p ${PORT} -P /run/webhookd.pid --config-file=${CONFIGFILE} -d -u ${AS_USER} -g ${AS_GROUP} --tag webhookd ${SSL_PARAMS}"
+
+set -u
+
+sig () {
+  test -s "$PID" && kill -$1 `cat $PID`
+}
+
+run () {
+  eval $1
+}
+
+case "$1" in
+    start)
+      sig 0 && echo >&2 "Already running" && exit 0
+      run "$CMD"
+      ;;
+    status)
+      [ ! -e "$PID" ] && echo "Not running" && exit 0
+      sig 0 && echo >&2 "Running" && exit 0
+      ;;
+    stop)
+      sig QUIT && rm "$PID" && echo "Stopped" && exit 0
+      echo >&2 "Not running"
+      ;;
+    restart)
+      sig HUP && echo reloaded OK && exit 0
+      echo >&2 "Couldn't reload, starting '$CMD' instead"
+      run "$CMD"
+      ;;
+    *) echo "usage: $0 start|stop|restart" >&2
+       exit 1
+       ;;
+esac

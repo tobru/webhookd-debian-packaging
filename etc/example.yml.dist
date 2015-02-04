@@ -1,0 +1,12 @@
+---
+global:
+  loglevel: 'debug'
+  logfile: '/var/log/webhookd.log'
+  username: 'myuser'
+  password: 'CHANGEME'
+vcs:
+  myproject:
+    _all:
+      command: 'echo this is <%= branch_name %>'
+    master:
+      command: 'echo this is master'

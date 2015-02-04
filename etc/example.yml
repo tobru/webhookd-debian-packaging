@@ -1,0 +1,19 @@
+---
+global:
+  loglevel: 'debug'
+  logfile: '/tmp/webhookd_dev.log'
+  username: 'deployer'
+  password: 'Deploy1T'
+vcs:
+  puppet-control:
+    _all:
+      command: 'echo this is <%= branch_name %>'
+    production:
+      command: 'echo this is production'
+    nocommandbranch:
+      somethingunknown: 'whats that'
+    emptyconfigbranch:
+  encdata:
+    master:
+      command: 'git pull'
+

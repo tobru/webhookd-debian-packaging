@@ -1,4 +1,4 @@
-# Webhookd
+# WebhookD
 
 **Flexible, configurable universal webhook receiver**
 
@@ -129,6 +129,16 @@ vcs:
       command: 'echo this is the repo <%= repo_name.upcase %>'
 ```
 
+### Webhook usage
+
+The use a webhook, add the URL to your project.
+
+**Available webhook payload types**
+
+* *Bitbucket*: http(s)://USERNAME:PASSWORD@YOURIP:YOURPORT/payload/bitbucket
+* *Gitlab*: http(s)://USERNAME:PASSWORD@YOURIP:YOURPORT/payload/gitlab
+* *Debug*: http(s)://USERNAME:PASSWORD@YOURIP:YOURPORT/payload/debug
+
 ### Testing
 
 There are some tests in place using `minitest`. Run `rake test` to run all available test.
@@ -152,6 +162,7 @@ For an example have a look at `lib/webhookd/payloadtype/bitbucket.rb`.
 Adding a new type would involve the following steps:
 1. Write a payload parser in `lib/webhookd/payloadtype/`
 1. Add business logic for the payload type in `lib/webhookd/app.rb` under `case parsed_data[:type]`
+1. Update README.md
 
 ### Payload parser
 
@@ -170,7 +181,69 @@ data[:branch_name]
 data[:author_name]
 ```
 
-## TODO / Ideas
+**debug**
 
-* Regex match for repository and branch names
-* Notification mechanism (jabber, irc)
+The `debug` payload type has the following hash signature:
+
+```ruby
+data[:type]
+```
+
+It can be used to develop a new payload type or payload parser.
+When using this payload type, it just outputs the request body
+in the logfile under the loglevel `debug`.
+
+## Packaging
+
+### Debian
+
+Some very basic Debian packaging effort can be found under [tobru/webhookd-debian-packaging](https://github.com/tobru/webhookd-debian-packaging).
+This is how the initial package creation was done:
+
+```
+export DEBFULLNAME="My Name"
+export DEBEMAIL="email@address.com"
+gem fetch webhookd
+gem2deb -p webhookd webhookd*.gem
+cd webhookd-<VERSION>
+git init
+git-import-orig ../webhookd_*.orig.tar.gz --pristine-tar
+cd ..
+mv webhookd-<VERSION> webhookd
+cd webhookd
+
+# EDIT .gitignore
+vi .gitignore
+
+# add following lines
+/debian/webhookd.postinst.debhelper
+/debian/webhookd.postrm.debhelper
+/debian/webhookd.prerm.debhelper
+/debian/webhookd.substvars
+/debian/webhookd
+/debian/files
+/.pc
+Gemfile.lock
+
+:wq
+# END EDIT
+
+git add .
+git commit -a
+git-buildpackage -us -uc
+```
+
+After changes to the packaging process (`/debian` folder):
+```
+dch -v <upstreamver>-<incrementpkgrel>
+git commit -a
+rm Gemfile.lock
+git-buildpackage -us -uc
+```
+
+If there is a new upstream version:
+```
+gem fetch webhookd && gem2deb webhookd*.gem ; git-import-orig
+dch -v <upstreamver>-<incrementpkgrel>
+```
+

@@ -22,7 +22,7 @@ module Webhookd
       data[:branch_name] = json_parsed['ref'].split("/")[2]
       data[:author_name] = json_parsed['user_name']
 
-      logger.debug "parsed from the gitlab data: #{data}"
+      logger.info "parsed from the gitlab data: #{data}"
 
       # return the hash
       data

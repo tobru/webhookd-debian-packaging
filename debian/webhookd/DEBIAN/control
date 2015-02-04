@@ -1,8 +1,8 @@
 Package: webhookd
-Version: 0.0.7-3
+Version: 0.0.7-4
 Architecture: all
 Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
-Installed-Size: 76
+Installed-Size: 95
 Depends: ruby | ruby-interpreter
 Section: ruby
 Priority: optional

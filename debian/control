@@ -13,7 +13,7 @@ XS-Ruby-Versions: all
 Package: webhookd
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-thor, ruby-sinatra, thin
 # bundler (~> 1.7, development), rake (~> 10.0, development), rack-test (>= 0.6.0, development), sinatra (>= 1.4.5, ~> 1.4), thor (>= 0.18.1, ~> 0.18), thin (>= 1.6.3, ~> 1.6)
 Description: Flexible, configurable universal webhook receiver
  This app is a flexible, configurable universal webhook receiver, built with sinatra. It can receive a webhook, parse its payload and take action according to the configuration.
